@@ -11,32 +11,32 @@ import endpoints from './endpoints'
 import PostService from '.'
 
 class PostAPIService implements PostService {
-    api: Record<string, any>
+  api: Record<string, any>
 
-    constructor() {
-        this.api = create({
-            baseURL: "https://jsonplaceholder.typicode.com/"
-        })
-    }
+  constructor() {
+    this.api = create({
+      baseURL: 'https://jsonplaceholder.typicode.com/'
+    })
+  }
 
-    async getPostAPI() {
-        console.log(12345667)
-        return networkCallWithApisauce(
-            this.api,
-            endpoints.posts.postList,
-            {},
-            apiMethods.get
-        )
-    }
+  async getPostAPI() {
+    console.log(12345667)
+    return networkCallWithApisauce(
+      this.api,
+      endpoints.posts.postList,
+      {},
+      apiMethods.get
+    )
+  }
 
-    // async updateTodoCompletionAPI(requestObject) {
-    //     return networkCallWithApisauce(
-    //         this.api,
-    //         endpoints.todos.updateCompletion,
-    //         requestObject,
-    //         apiMethods.post
-    //     )
-    // }
+  // async updateTodoCompletionAPI(requestObject) {
+  //     return networkCallWithApisauce(
+  //         this.api,
+  //         endpoints.todos.updateCompletion,
+  //         requestObject,
+  //         apiMethods.post
+  //     )
+  // }
 }
 
 export default PostAPIService
