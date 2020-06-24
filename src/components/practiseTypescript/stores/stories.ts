@@ -1,17 +1,20 @@
 import React from 'react'
 import { bindPromiseWithOnSuccess } from '@ib/mobx-promise'
 import { observable, action } from 'mobx'
-import { API_INITIAL } from '@ib/api-constants'
+import { API_INITIAL, APIStatus } from '@ib/api-constants'
 import PostModel from './model'
+import PostService from "../services"
+import { PostObject } from "./types"
+
 
 class PostStore {
-  @observable getPostAPIStatus
-  @observable getPostAPIError
-  @observable getPostData
+  @observable getPostAPIStatus!: APIStatus
+  @observable getPostAPIError!: Error | null
+  @observable getPostData!: Array<PostModel>
 
-  postServiceAPI
+  postServiceAPI: PostService
 
-  constructor(postServiceAPI) {
+  constructor(postServiceAPI: PostService) {
     this.postServiceAPI = postServiceAPI
     this.init()
   }
@@ -22,20 +25,21 @@ class PostStore {
     this.getPostData = []
   }
   @action.bound
-  setPractiseAPIStatus(status) {
+  setPractiseAPIStatus(status: number) {
     this.getPostAPIStatus = status
   }
 
   @action.bound
-  setPractiseAPIError(error) {
+  setPractiseAPIError(error: Error | null) {
     this.getPostAPIError = error
   }
   @action.bound
-  setPractiseAPIResponse(data) {
-    let a = data
-    this.getPostData = a.map(item => {
-      return new PostModel(item)
-    })
+  setPractiseAPIResponse(data: Array<PostObject> | null) {
+    if (data) {
+      this.getPostData = data.map(item => {
+        return new PostModel(item)
+      })
+    }
   }
   @action.bound
   getPostLists() {

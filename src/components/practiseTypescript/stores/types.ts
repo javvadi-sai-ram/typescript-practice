@@ -17,7 +17,6 @@ export interface GetTodosRequest {
   todo_status: TodoStatus
 }
 
-export interface GetTodosResponse {
-  practise: Array<PostObject>
-  total: number
-}
+// export interface GetPostsResponse {
+//   practise: Array<PostObject>
+// }

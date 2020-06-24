@@ -1,11 +1,11 @@
 import React from 'react'
 import { PostObject } from '../stores/types'
 
-type props = {
+type PostTypescriptprops = {
   data: PostObject
 }
 
-class PostTypescript extends React.Component<props> {
+class Posts extends React.Component<PostTypescriptprops> {
   render() {
     const { data } = this.props
     console.log(this.props.data)
@@ -20,4 +20,4 @@ class PostTypescript extends React.Component<props> {
   }
 }
 
-export default PostTypescript
+export default Posts
