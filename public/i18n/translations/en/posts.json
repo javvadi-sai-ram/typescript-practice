@@ -1,0 +1,8 @@
+{
+  "posts": {
+    "postUserId": "still userId {{count}} left",
+    "postUserId_plural": "Still userId's {{count}} Left",
+    "postId": "still Id {{number}} left",
+    "postId_plural": "Still Id's {{number}} Left"
+  }
+}

@@ -1,17 +1,20 @@
 import React from 'react'
 import { PostObject } from '../stores/types'
+import { withTranslation, WithTranslation } from 'react-i18next'
 
-type PostTypescriptprops = {
+interface PostTypescriptprops {
   data: PostObject
 }
 
+interface PostTypescriptprops extends WithTranslation {}
+
 class Posts extends React.Component<PostTypescriptprops> {
   render() {
-    const { data } = this.props
-    console.log(this.props.data)
+    const { data, t } = this.props
+
     return (
-      <div>
-        <div>{data.id}</div>
+      <div style={{ boxShadow: '1px 1px 0px 0px' }}>
+        <div>{t('posts:posts.postUserId', { count: data.userId })}</div>
         <div>{data.userId}</div>
         <div>{data.title}</div>
         <div>{data.body}</div>
@@ -20,4 +23,4 @@ class Posts extends React.Component<PostTypescriptprops> {
   }
 }
 
-export default Posts
+export default withTranslation('translation', { withRef: true })(Posts)
