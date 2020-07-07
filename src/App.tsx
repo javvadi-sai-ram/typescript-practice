@@ -12,22 +12,35 @@ import {
   HOME_ROUTE_PATH,
   SAMPLE_ROUTE_PATH,
   TODOS_ROUTE_PATH,
-  POST_ROUTE_PATH
+  POST_ROUTE_PATH,
+  HOVER_ROUTE_PATH
 } from './constants/NavigationConstants'
 //import TodosRoute from './routes/TodosRoute'
-import PostRoute from './routes/PostRoute'
+//import PostRoute from './routes/PostRoute'
 
 const TodosRoute = lazy(() => import('./routes/TodosRoute'))
+const PostRoute = lazy(() => import('./routes/PostRoute'))
+const HoverModel = lazy(() => import('./routes/netflixHoverModel/route'))
 
 import i18n from './i18n'
+import Loader from './components/common/Icons/Loader/SvgFile'
 
 const App = () => {
   return (
     <Provider {...stores}>
       <I18nextProvider i18n={i18n}>
-        <Suspense fallback={<div />}>
+        <Suspense
+          fallback={
+            <div>
+              <Loader />
+            </div>
+          }
+        >
           <Router basename={process.env.PUBLIC_URL}>
             <Switch>
+              <Route exact path={HOVER_ROUTE_PATH}>
+                <HoverModel />
+              </Route>
               <Route exact path={POST_ROUTE_PATH}>
                 <PostRoute />
               </Route>

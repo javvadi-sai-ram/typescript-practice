@@ -25,6 +25,7 @@ function withComponentNameClassComponent<T>(
 function withComponentNameFunctionalComponent<T>(
   WrappedComponent: React.ComponentType<T>
 ) {
+  console.log(getDisplayName(WrappedComponent))
   const functionalComponent = (props: T) => (
     <HOCWrapper>
       <ComponentName>{getDisplayName(WrappedComponent)}</ComponentName>

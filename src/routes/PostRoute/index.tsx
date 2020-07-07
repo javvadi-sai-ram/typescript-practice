@@ -6,9 +6,9 @@ import LoadingWrapperWithFailure from '../../components/common/LoadingWrapperWit
 import Posts from '../../components/practiseTypescript/components/index'
 
 import PostStore from '../../components/practiseTypescript/stores/stories'
-import { PostObject } from "../../components/practiseTypescript/stores/types"
+import { PostObject } from '../../components/practiseTypescript/stores/types'
 
-interface PostsRouteProps { }
+interface PostsRouteProps {}
 
 interface InjectedProps extends PostsRouteProps {
   postStore: PostStore
@@ -34,11 +34,13 @@ class PostRoute extends Component<PostsRouteProps> {
   renderSuccessUI = observer(() => {
     const { getPostData } = this.getPostStore()
 
-    return <React.Fragment>
-      {getPostData.map(item => <Posts data={item} />)}
-    </React.Fragment>
-
-
+    return (
+      <React.Fragment>
+        {getPostData.map(item => (
+          <Posts data={item} />
+        ))}
+      </React.Fragment>
+    )
   })
 
   render() {

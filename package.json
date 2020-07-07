@@ -20,6 +20,7 @@
     "i18next-xhr-backend": "3.2.2",
     "js-cookie": "2.2.1",
     "mobx": "5.15.0",
+    "react-lazy": "1.1.0",
     "mobx-react": "6.1.4",
     "postcss-cli": "7.1.1",
     "react": "16.13.1",

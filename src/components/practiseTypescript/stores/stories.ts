@@ -3,9 +3,8 @@ import { bindPromiseWithOnSuccess } from '@ib/mobx-promise'
 import { observable, action } from 'mobx'
 import { API_INITIAL, APIStatus } from '@ib/api-constants'
 import PostModel from './model'
-import PostService from "../services"
-import { PostObject } from "./types"
-
+import PostService from '../services'
+import { PostObject } from './types'
 
 class PostStore {
   @observable getPostAPIStatus!: APIStatus
